@@ -1,0 +1,22 @@
+{
+  "tabs": {
+    "aktivitas_val": { "label": "Activities", "to": "/aktivitas" },
+    "wahana_val": { "label": "Play", "to": "/wahana" },
+    "tiket_val": { "label": "Tickets & Packages", "to": "/tiket" },
+    "pesan_val": { "label": "Book Ticket", "to": "/pesan" }
+  },
+  "mode": {
+    "kids": "Kids Mode",
+    "normal": "Normal Mode"
+  },
+  "hero": {
+    "title": "Welcome to Theme Park",
+    "subtitle": "Enjoy a fun holiday with your family"
+  },
+  "content": {
+    "about": "This park was established in 1990 and has become a favorite family destination."
+  },
+  "button": {
+    "buyTicket": "Buy Ticket Now"
+  }
+}

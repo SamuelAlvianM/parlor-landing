@@ -1,0 +1,22 @@
+{
+  "tabs": {
+    "aktivitas_val": { "label": "Aktivitas ", "to": "/aktivitas" },
+    "wahana_val": { "label": "Wahana", "to": "/wahana" },
+    "tiket_val": { "label": "Tiket & Paket", "to": "/tiket" },
+    "pesan_val": { "label": "Pesan Tiket", "to": "/pesan" }
+  },
+  "mode": {
+    "kids": "Mode Anak",
+    "normal": "Mode Normal"
+  },
+  "hero": {
+    "title": "Selamat Datang di Taman Wisata",
+    "subtitle": "Nikmati liburan seru bersama keluarga"
+  },
+  "content": {
+    "about": "Taman ini berdiri sejak tahun 1990 dan menjadi destinasi favorit keluarga."
+  },
+  "button": {
+    "buyTicket": "Beli Tiket Sekarang"
+  }
+}

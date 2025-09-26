@@ -1,6 +1,10 @@
-/// <reference types="nuxt" />
+// nuxt.config.ts
 export default defineNuxtConfig({
+  ssr: true,
+  nitro: { preset: 'static' },
+
   css: ['@/assets/css/tailwind.css'],
+
   modules: [
     '@nuxtjs/i18n',
     '@nuxt/ui',
@@ -9,18 +13,19 @@ export default defineNuxtConfig({
   ],
 
   i18n: {
+    langDir: 'locales/',
     locales: [
-      { code: 'en', name: 'English' },
-      { code: 'id', name: 'Indonesia' }
+      { code: 'id', iso: 'id-ID', file: 'id.json', name: 'Bahasa Indonesia' },
+      { code: 'en', iso: 'en-US', file: 'en.json', name: 'English' }
     ],
-    defaultLocale: 'en',
-    strategy: 'no_prefix',
-    vueI18n: './i18n.config.ts'
+    defaultLocale: 'id',
+    strategy: 'no_prefix'
   },
+
   fonts: {
     families: [
       { name: 'Inter', provider: 'google' },
-      { name: 'Roboto', provider: 'google' },
+      { name: 'Roboto', provider: 'google' }
     ],
   },
 
