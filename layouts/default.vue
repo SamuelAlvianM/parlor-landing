@@ -2,7 +2,7 @@
   <div>
     <PartHeader />
 
-    <main>
+    <main class="bg-white text-black">
       <slot />
     </main>
 

@@ -1,6 +1,6 @@
 {
   "tabs": {
-    "aktivitas_val": { "label": "Aktivitas ", "to": "/aktivitas" },
+    "aktivitas_val": { "label": "Aktivitas", "to": "/aktivitas" },
     "wahana_val": { "label": "Wahana", "to": "/wahana" },
     "tiket_val": { "label": "Tiket & Paket", "to": "/tiket" },
     "pesan_val": { "label": "Pesan Tiket", "to": "/pesan" }

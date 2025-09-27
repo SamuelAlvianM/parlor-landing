@@ -1,71 +1,68 @@
 <template>
-  <header class="sticky top-0 z-50 bg-utama shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between text-white">
+  <header class="sticky top-0 z-50 bg-utama-light font-bold shadow-md py-4">
+    <div class="w-full px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
         
-        <!-- Kiri: Logo -->
-        <div class="flex items-center space-x-2">
-          <img src="/favicon.ico" alt="Logo" class="h-12 w-17" />
+        <!-- Logo -->
+        <div class="flex items-center space-x-2 px-12">
+          <img src="/favicon.ico" alt="Logo" class="h-28 w-30" />
         </div>
-
-
+        
         <div class="flex flex-row items-center gap-10">
-          <!-- Tengah: Navigation Tabs -->
+          <!-- Navigation Tabs -->
           <nav class="hidden md:flex space-x-8">
-            <NuxtLink
-              v-for="key in tabKeys"
-              :key="key"
-              :to="$t(`tabs.${key}.to`)"
-              class="text-sm font-medium transition-default"
+            <a
+              v-for="tab in tabKeys"
+              :key="tab.id"
+              :href="'#' + tab.id"
+              class="text-lg font-bold transition-default"
               :class="{
-                'text-ungu-terang border-b-2 border-utama-teks pb-1': isActive(key),
-                'text-utama-teks hover:text-ungu-terang': !isActive(key)
+                'text-utama border-b-2 border-utama pb-1': activeSection === tab.id,
+                'text-utama hover:text-utama-dark': activeSection !== tab.id
               }"
             >
-              {{ $t(`tabs.${key}.label`) }}
-            </NuxtLink>
+              {{ $t(`tabs.${tab.i18n}.label`) }}
+            </a>
           </nav>
-  
-          <!-- Kanan: Controls -->
+          
+          <!-- Controls -->
           <div class="flex items-center gap-8">
-            
             <!-- Language Switch -->
-          <div class="flex items-center text-sm font-medium space-x-2">
-            <template v-for="(loc, index) in locales" :key="loc">
-              <button
-                @click="setLocale(loc)"
-                class="transition-default"
-                :class="{
-                  'text-ungu-terang border-b-2 border-ungu-terang': currentLocale === loc,
-                  'text-utama-teks hover:text-ungu-terang': currentLocale !== loc
-                }"
-              >
-                {{ $t(loc.toUpperCase()) }}
-              </button>
-
-              <span v-if="index < locales.length - 1" class="text-utama-teks">|</span>
-            </template>
-          </div>
-  
-            <!-- Kids Mode Toggle -->
+            <div class="flex items-center text-lg font-medium space-x-2">
+              <template v-for="(loc, index) in locales" :key="loc">
+                <button
+                  @click="setLocale(loc)"
+                  class="transition-default font-bold"
+                  :class="{
+                    'text-utama border-b-2 border-utama': currentLocale === loc,
+                    'text-utama hover:text-utama': currentLocale !== loc
+                  }"
+                >
+                  {{ loc.toUpperCase() }}
+                </button>
+                <span v-if="index < locales.length - 1" class="text-utama">|</span>
+              </template>
+            </div>
+            
+            <!-- Kids Mode -->
             <div class="flex flex-col items-center w-[100px]">
               <label class="flex items-center cursor-pointer">
                 <input type="checkbox" v-model="kidsMode" class="sr-only" />
                 <div
-                  class="w-11 h-6 bg-gray-300 rounded-full p-1 flex items-center transition-all"
-                  :class="{ 'bg-ungu-terang': kidsMode }"
+                  class="w-11 h-6 bg-gray-300 rounded-full border border-utama shadow-md p-1 flex items-center transition-all"
+                  :class="{ 'bg-utama': kidsMode }"
                 >
                   <div
-                    class="bg-white w-4 h-4 rounded-full shadow transform transition-transform"
+                    class="bg-white shadow-md w-4 h-4 rounded-full shadow transform transition-transform"
                     :class="{ 'translate-x-5 shadow-md border border-utama': kidsMode }"
                   />
                 </div>
               </label>
-              <span 
-                class="mt-1 text-xs transition-colors"
-                :class="kidsMode ? 'text-ungu-terang' : 'text-utama-teks'"
+              <span
+                class="mt-1 text-sm transition-colors"
+                :class="kidsMode ? 'text-utama' : 'text-utama'"
               >
-                {{ kidsMode ? 'Kids Mode' : 'Normal Mode' }}
+                {{ $t(kidsMode ? 'mode.kids' : 'mode.normal') }}
               </span>
             </div>
           </div>
@@ -73,9 +70,6 @@
       </div>
     </div>
   </header>
-  <pre>
-    <p>{{ $t('tabs.aktivitas_val.label') }}</p>
-  </pre>
 </template>
 
 <script setup lang="ts">
@@ -83,12 +77,17 @@ import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
 const route = useRoute()
-const { locale, t } = useI18n()
+const { locale } = useI18n()
 
-const tabKeys = ['aktivitas_val', 'wahana_val', 'tiket_val', 'pesan_val']
+// Sekarang pakai object biar beda id & key i18n
+const tabKeys = [
+  { id: 'aktivitas', i18n: 'aktivitas_val' },
+  { id: 'wahana', i18n: 'wahana_val' },
+  { id: 'tiket', i18n: 'tiket_val' },
+  { id: 'pesan', i18n: 'pesan_val' },
+]
 
-
-const isActive = (path: string) => route.path.startsWith(path)
+const activeSection = ref('aktivitas')
 
 const locales = ['id', 'en'] as const
 type Locale = typeof locales[number]
@@ -99,4 +98,26 @@ const setLocale = (loc: Locale) => {
 }
 
 const kidsMode = ref(false)
+
+onMounted(() => {
+  const sections = tabKeys.map(tab => document.getElementById(tab.id))
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          activeSection.value = entry.target.id
+        }
+      })
+    },
+    { threshold: 0.5 }
+  )
+  sections.forEach(sec => sec && observer.observe(sec))
+})
+
+const scrollTo = (id: string) => {
+  const el = document.getElementById(id)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+}
 </script>

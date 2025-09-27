@@ -27,12 +27,12 @@
     json-schema "^0.4.0"
 
 "@ai-sdk/vue@^2.0.48":
-  version "2.0.54"
-  resolved "https://registry.yarnpkg.com/@ai-sdk/vue/-/vue-2.0.54.tgz#8fe374517acfa41bf813948944012977e5fa00b5"
-  integrity sha512-iXHDDvk+143BQjScGa2o49BoRgGUSs/jJAUZMvMnoQuSnxn40YpEfSQC4WWD7JHujk0VffW4DiHvAFMcdbnCUw==
+  version "2.0.56"
+  resolved "https://registry.yarnpkg.com/@ai-sdk/vue/-/vue-2.0.56.tgz#6f13a7f799cc04c7c39a4d12b028221d8c32740e"
+  integrity sha512-b5j8oROtBNs7A+rrOUUG8/izYQ0fePiIUZ3mcAa6JEijGrTb3MmQnhos2i6HIJJKCaQdfJl1mKBz86C4WSiQSw==
   dependencies:
     "@ai-sdk/provider-utils" "3.0.10"
-    ai "5.0.54"
+    ai "5.0.56"
     swrv "^1.0.4"
 
 "@alloc/quick-lru@^5.2.0":
@@ -728,7 +728,7 @@
     semver "^7.5.3"
     tar "^7.4.0"
 
-"@messageformat/core@^3.0.0":
+"@messageformat/core@^3.4.0":
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/@messageformat/core/-/core-3.4.0.tgz#2814c23383dec7bddf535d54f2a03e410165ca9f"
   integrity sha512-NgCFubFFIdMWJGN5WuQhHCNmzk7QgiVfrViFxcS99j7F5dDS5EP6raR54I+2ydhe4+5/XTn/YIEppFaqqVWHsw==
@@ -2175,9 +2175,9 @@
     unhead "2.0.17"
 
 "@vercel/nft@^0.30.1":
-  version "0.30.1"
-  resolved "https://registry.yarnpkg.com/@vercel/nft/-/nft-0.30.1.tgz#75a60ecf3aee6113ec0d4082d66ad5dd39ab4eca"
-  integrity sha512-2mgJZv4AYBFkD/nJ4QmiX5Ymxi+AisPLPcS/KPXVqniyQNqKXX+wjieAbDXQP3HcogfEbpHoRMs49Cd4pfkk8g==
+  version "0.30.2"
+  resolved "https://registry.yarnpkg.com/@vercel/nft/-/nft-0.30.2.tgz#5584cdc9778abce54827749baa92081e0bd2d723"
+  integrity sha512-pquXF3XZFg/T3TBor08rUhIGgOhdSilbn7WQLVP/aVSSO+25Rs4H/m3nxNDQ2x3znX7Z3yYjryN8xaLwypcwQg==
   dependencies:
     "@mapbox/node-pre-gyp" "^2.0.0"
     "@rollup/pluginutils" "^5.1.3"
@@ -2517,10 +2517,10 @@ agent-base@^7.1.2:
   resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-7.1.4.tgz#e3cd76d4c548ee895d3c3fd8dc1f6c5b9032e7a8"
   integrity sha512-MnA+YT8fwfJPgBx3m60MNqakm30XOkyIoH1y6huTQvC0PwZG7ki8NacLBcrPbNoo8vEZy7Jpuk7+jMO+CUovTQ==
 
-ai@5.0.54:
-  version "5.0.54"
-  resolved "https://registry.yarnpkg.com/ai/-/ai-5.0.54.tgz#690ce642fd412ae81236d123ecfb3f866f71b80d"
-  integrity sha512-eM3EH4VVCWRMfs17r8HF8RtCN/+vBdpWOQoHSVooIfB0BZerOHyrktrVoDP6G6xatUzGLTvJT3rMKLkbPTLPBg==
+ai@5.0.56:
+  version "5.0.56"
+  resolved "https://registry.yarnpkg.com/ai/-/ai-5.0.56.tgz#fa0691ee1170d92d541c85fc8567f3a939a2c674"
+  integrity sha512-Rl++Ogg6DxzFkVHAOJZzhqcqvqtBLGOP9mMxJOGr2EJWj5HH5zjqDcnRh6x5vBoca5kj/Gd0rvUZFMnyI+sRiw==
   dependencies:
     "@ai-sdk/gateway" "1.0.30"
     "@ai-sdk/provider" "2.0.0"
@@ -2528,9 +2528,9 @@ ai@5.0.54:
     "@opentelemetry/api" "1.9.0"
 
 alien-signals@^2.0.5:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/alien-signals/-/alien-signals-2.0.7.tgz#8c695e01878081046f1486e7e332380db35fb7e6"
-  integrity sha512-wE7y3jmYeb0+h6mr5BOovuqhFv22O/MV9j5p0ndJsa7z1zJNPGQ4ph5pQk/kTTCWRC3xsA4SmtwmkzQO+7NCNg==
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/alien-signals/-/alien-signals-2.0.8.tgz#f1592509482c6cf0a5710f09bfcad3ca60f347db"
+  integrity sha512-844G1VLkk0Pe2SJjY0J8vp8ADI73IM4KliNu2OGlYzWpO28NexEUvjHTcFjFX3VXoiUtwTbHxLNI9ImkcoBqzA==
 
 ansi-regex@^5.0.1:
   version "5.0.1"
@@ -3523,7 +3523,7 @@ fast-npm-meta@^0.4.6:
   resolved "https://registry.yarnpkg.com/fast-npm-meta/-/fast-npm-meta-0.4.7.tgz#c5f3d60cac2b0f1d186a8dd252ae85dddd60e5d8"
   integrity sha512-aZU3i3eRcSb2NCq8i6N6IlyiTyF6vqAqzBGl2NBF6ngNx/GIqfYbkLDIKZ4z4P0o/RmtsFnVqHwdrSm13o4tnQ==
 
-fast-printf@^1.6.9:
+fast-printf@^1.6.10:
   version "1.6.10"
   resolved "https://registry.yarnpkg.com/fast-printf/-/fast-printf-1.6.10.tgz#c44ad871726152159d7a903a5af0d65cf3d75875"
   integrity sha512-GwTgG9O4FVIdShhbVF3JxOgSBY2+ePGsu2V/UONgoCPzF9VY6ZdBMKsHKCYQHZwNk3qNouUolRDsgVxcVA5G1w==
@@ -3797,14 +3797,14 @@ human-signals@^5.0.0:
   integrity sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==
 
 i18n@^0.15.1:
-  version "0.15.1"
-  resolved "https://registry.yarnpkg.com/i18n/-/i18n-0.15.1.tgz#68fb8993c461cc440bc2485d82f72019f2b92de8"
-  integrity sha512-yue187t8MqUPMHdKjiZGrX+L+xcUsDClGO0Cz4loaKUOK9WrGw5pgan4bv130utOwX7fHE9w2iUeHFalVQWkXA==
+  version "0.15.2"
+  resolved "https://registry.yarnpkg.com/i18n/-/i18n-0.15.2.tgz#0f73b9d3545c2a7b00ea34d134d0c2d5b75aa38b"
+  integrity sha512-mdBxCfC651UL/hNizIQgB1NHwbBKjlrPcsoTzd/X8rNbJlS1FMF//TOyHEVFg9Dxo0RcrI2ZKt1AFTNe3Q40og==
   dependencies:
-    "@messageformat/core" "^3.0.0"
-    debug "^4.3.3"
-    fast-printf "^1.6.9"
-    make-plural "^7.0.0"
+    "@messageformat/core" "^3.4.0"
+    debug "^4.4.3"
+    fast-printf "^1.6.10"
+    make-plural "^7.4.0"
     math-interval-parser "^2.0.1"
     mustache "^4.2.0"
 
@@ -4275,7 +4275,7 @@ magicast@^0.3.5:
     "@babel/types" "^7.25.4"
     source-map-js "^1.2.0"
 
-make-plural@^7.0.0:
+make-plural@^7.0.0, make-plural@^7.4.0:
   version "7.4.0"
   resolved "https://registry.yarnpkg.com/make-plural/-/make-plural-7.4.0.tgz#fa6990dd550dea4de6b20163f74e5ed83d8a8d6d"
   integrity sha512-4/gC9KVNTV6pvYg2gFeQYTW3mWaoJt7WZE5vrp1KnQDgW92JtYZnzmZT81oj/dUTqAIu0ufI2x3dkgu3bB1tYg==
@@ -5765,6 +5765,11 @@ svgo@^4.0.0:
     csso "^5.0.5"
     picocolors "^1.1.1"
     sax "^1.4.1"
+
+swiper@^12.0.2:
+  version "12.0.2"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-12.0.2.tgz#aa52251d125fc6e9986af09ae3769fe836e68780"
+  integrity sha512-y8F6fDGXmTVVgwqJj6I00l4FdGuhpFJn0U/9Ucn1MwWOw3NdLV8aH88pZOjyhBgU/6PyBlUx+JuAQ5KMWz906Q==
 
 swrv@^1.0.4:
   version "1.1.0"

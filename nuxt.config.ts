@@ -13,13 +13,13 @@ export default defineNuxtConfig({
   ],
 
   i18n: {
-    langDir: 'locales/',
+    strategy: 'no_prefix',
+    defaultLocale: 'id',
+    langDir:'locales',
     locales: [
       { code: 'id', iso: 'id-ID', file: 'id.json', name: 'Bahasa Indonesia' },
       { code: 'en', iso: 'en-US', file: 'en.json', name: 'English' }
     ],
-    defaultLocale: 'id',
-    strategy: 'no_prefix'
   },
 
   fonts: {
