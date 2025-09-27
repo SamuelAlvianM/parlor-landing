@@ -11,6 +11,7 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/i18n',
+    '@nuxt/image',
     '@nuxt/ui',
     '@nuxt/fonts',
     '@nuxt/icon'
@@ -24,6 +25,9 @@ export default defineNuxtConfig({
       { code: 'id', iso: 'id-ID', file: 'id.json', name: 'Bahasa Indonesia' },
       { code: 'en', iso: 'en-US', file: 'en.json', name: 'English' }
     ],
+  },
+  image: {
+    domains: ['parlor.dev','localhost','hompimplay.id','backend.hompimplay.id']
   },
 
   runtimeConfig: {

@@ -16,34 +16,33 @@
         :loop="true"
         :autoplay="{ delay: 3000 }"
         :navigation="{
-          nextEl: '.swiper-button-next-custom',
-          prevEl: '.swiper-button-prev-custom',
+          prevEl: '#wahana-prev',
+          nextEl: '#wahana-next'
         }"
         :slides-per-view="5"
         :space-between="20"
-        centered-slides
+        :centered-slides="true"
         class="w-full"
         @slideChange="onSlideChange"
       >
         <SwiperSlide v-for="(wahana, index) in data" :key="index">
           <!-- Card aja -->
-          <div class="bg-white rounded-[15%] shadow-lg overflow-hidden w-80 mx-auto">
-            <img
+          <div class="bg-white rounded-[10%] shadow-lg overflow-hidden w-80 mx-auto">
+            <NuxtImg
               :src="wahana.imagePath"
               :alt="wahana.nama"
-              class="w-full h-80 object-cover"
+              class="w-full h-[28em] object-cover"
             />
           </div>
         </SwiperSlide>
       </Swiper>
 
-      <!-- Tombol navigasi -->
-      <div
-        class="swiper-button-prev-custom absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-utama rounded-full flex items-center justify-center cursor-pointer shadow-lg"
-      >
+      <!-- Tombol arrow -->
+      <div id="wahana-prev" class="swiper-button-prev-custom absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-utama rounded-full flex items-center justify-center cursor-pointer shadow-lg">
         <Icon name="heroicons:chevron-left" class="w-6 h-6 text-white" />
       </div>
       <div
+      id="wahana-next"
         class="swiper-button-next-custom absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-utama rounded-full flex items-center justify-center cursor-pointer shadow-lg"
       >
         <Icon name="heroicons:chevron-right" class="w-6 h-6 text-white" />
@@ -70,12 +69,6 @@ import { Navigation, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
-interface Wahana {
-  id: number
-  nama: string
-  imagePath: string
-  deskripsi?: string | null
-}
 
 const { data } = await useAsyncData("wahana", async () => {
   const apiRes = await useApi<{ result: { data: Wahana[] } }>("wahana")

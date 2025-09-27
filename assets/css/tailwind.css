@@ -4,6 +4,7 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+
 @theme {
   --font-nunito: "Nunito", "sans-serif";
   --color-midnight: #121063;
