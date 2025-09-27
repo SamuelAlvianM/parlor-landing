@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-utama-light border-t border-ungu-terang text-utama px-4">
+  <footer class="bg-utama-light border-t border-utama text-utama px-4">
     <div class="w-full px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
       
     <div class="space-y-6 px-4">
@@ -65,7 +65,7 @@
     </div>
 
     <!-- Copyright -->
-    <div class="border-t border-gray-200 mt-6 py-4 px-12 text-left text-md text-utama font-bold">
+    <div class="border-t border-utama mt-6 py-4 px-12 text-left text-md text-utama font-bold">
       © {{ new Date().getFullYear() }} CV 3 Detik. All Rights Reserved.
     </div>
   </footer>
