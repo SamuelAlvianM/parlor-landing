@@ -1,4 +1,8 @@
 // nuxt.config.ts
+import { execSync } from 'node:child_process'
+
+const commitHash = execSync('git rev-parse --short HEAD').toString().trim()
+
 export default defineNuxtConfig({
   ssr: true,
   nitro: { preset: 'static' },
@@ -22,11 +26,16 @@ export default defineNuxtConfig({
     ],
   },
 
-  fonts: {
-    families: [
-      { name: 'Inter', provider: 'google' },
-      { name: 'Roboto', provider: 'google' }
-    ],
+  runtimeConfig: {
+    apiEndPoint: process.env.NUXT_API_BASE,
+
+    public: {
+       buildTime: new Date().toISOString(),
+       commit: commitHash,
+      wsUrl: process.env.NUXT_WS_URL ,
+      apiUrl: process.env.NUXT_API_BASE,
+      rootUrl: process.env.NUXT_API_BASE_PROD || 'http://localhost:3000',
+    }
   },
 
   compatibilityDate: '2025-09-26',

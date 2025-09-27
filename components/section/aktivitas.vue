@@ -35,11 +35,16 @@
             HOMPIMPLAY
           </h1>
         </div>
-    </div>
-  </section>
+      </div>
+      <!-- <pre>
+        INI DATA
+        {{ data }}
+      </pre> -->
+    </section>
 </template>
 
 <script setup lang="ts">
+import { useAsyncData } from 'nuxt/app'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
@@ -54,6 +59,8 @@ const images = [
   'https://i.pinimg.com/1200x/6b/f5/a6/6bf5a6c1b991e8b75af6ac73fe647486.jpg',
   'https://i.pinimg.com/1200x/7d/19/5c/7d195c4db702712c755cc29b260c4fcd.jpg'
 ]
+
+
 </script>
 
 <style scoped>
