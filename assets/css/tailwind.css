@@ -32,12 +32,15 @@
   --color-logo-3:#FFA925;
   --color-logo-4:#FF3929;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 :root {
   --ui-primary: #c973ff;
   --ui-secondary: #2d96ff;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
 }
+
 .transition-default {
   @apply transition-all duration-300;
 }

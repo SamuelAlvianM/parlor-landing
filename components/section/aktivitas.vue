@@ -1,5 +1,5 @@
 <template>
-  <section id="aktivitas" class="w-full h-screen bg-utama flex flex-col justify-end">
+  <section id="aktivitas" class="w-full h-[94vh] bg-utama flex flex-col scroll-mt-24">
     <Swiper
       :modules="[Navigation, Pagination, Autoplay]"
       :loop="true"
@@ -13,7 +13,7 @@
     >
       <SwiperSlide v-for="(img, index) in images" :key="index">
         <div
-          class="w-full h-full bg-cover rounded-b-4xl bg-center"
+          class="w-full  h-[600px] bg-cover rounded-b-[10%] bg-center"
           :style="{ backgroundImage: `url(${img})` }"
         ></div>
       </SwiperSlide>
@@ -27,7 +27,7 @@
       </div>
     </Swiper>
     
-    <div class="flex flex-col items-center justify-center mb-12 space-y-4 pt-8 text-center text-white">
+    <div class="flex flex-col justify-center mb-16 space-y-4 text-center text-white">
         <div class="text-xl md: text-lg font-bold"> Parlor Hills </div>
         <div>
           <h2 class="text-2xl md:text-4xl font-bold">Nikmati Wahana Seru di</h2>
@@ -64,6 +64,9 @@ const images = [
 </script>
 
 <style scoped>
+:deep(.swiper) {
+  position: relative; /* pastikan wrapper swiper relative */
+}
 /* Custom bullet styles - default inactive */
 :deep(.swiper-pagination-bullet) {
   width: 12px;
@@ -84,7 +87,7 @@ const images = [
 
 /* Position pagination at bottom of carousel */
 :deep(.swiper-pagination) {
-  bottom: 20px !important;
+  bottom: 60px !important;
 }
 
 /* Hide default navigation arrows */

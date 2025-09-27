@@ -1,5 +1,5 @@
 <template>
-  <section id="wahana" class="w-full h-[80vh] bg-ungu-terang flex flex-col ">
+  <section id="wahana" class="w-full h-[100vh] bg-ungu-terang flex flex-col scroll-mt-24">
     <div class="py-8 text-center">
       <!-- Judul section -->
       <div class="text-4xl font-extrabold text-utama">
