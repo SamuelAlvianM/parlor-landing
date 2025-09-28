@@ -12,7 +12,7 @@
     <Swiper
       :modules="[Navigation]"
       :loop="true"
-      :slides-per-view="5"
+      :slides-per-view="3"
       :navigation="{
         prevEl: '#tiket-prev',
         nextEl: '#tiket-next'
@@ -20,16 +20,23 @@
       class="w-full h-[40vh]"
     >
       <SwiperSlide
-        v-for="paket in paketWahana || []"
+        v-for="paket in data  || []"
         :key="paket.id"
       >
-        <div class="bg-white shadow-lg overflow-hidden w-[200px] mx-auto p-4 rounded-xl">
-          <div class="font-bold text-lg text-gray-800">{{ paket.nama }}</div>
-          <div class="text-sm text-gray-600">
-            Weekday: Rp {{ paket.wd_harga?.toLocaleString?.() }}
+        <div class="bg-white shadow-lg overflow-hidden w-[36em] h-[20em] mx-auto p-4 rounded-md flex flex-col justify-between">
+          <!-- Nama Wahana -->
+          <div class="font-bold text-2xl text-gray-800 text-center">
+            {{ paket.nama }}
           </div>
-          <div class="text-sm text-gray-600">
-            Weekend: Rp {{ paket.we_harga?.toLocaleString?.() }}
+
+          <!-- Harga -->
+          <div class="mt-4 w-full flex justify-evenly gap-4">
+            <div class="bg-green-500 text-white text-base font-semibold px-4 py-2 rounded-lg text-center w-60">
+              Weekday: Rp {{ paket.nama?.toLocaleString() }}
+            </div>
+            <div class="bg-green-500 text-white text-base font-semibold px-4 py-2 rounded-lg text-center w-60">
+              Weekend: Rp {{ paket.nama?.toLocaleString() }}
+            </div>
           </div>
         </div>
       </SwiperSlide>
@@ -69,22 +76,27 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 
 
-const { data: paketWahana, error } = await useAsyncData<PaketWahana[]>(
-  "paketwahana",
-  async () => {
-    const res = await $fetch<ApiResponse<Wahana>>("paketwahana")
+// const { data: paketWahana, error } = await useAsyncData(
+//   "paketwahana",
+//   async () => {
+//     const res = await $fetch<ApiResponse>("wahana")
 
-    return res.result.data.map((wahana) => ({
-      ...wahana,
-      wd_harga: wahana.pivot.extra.wd_harga,
-      we_harga: wahana.pivot.extra.we_harga,
-      catatan: wahana.pivot.extra.catatan,
-    }))
-  }
-)
+//     return res.result.data.map((wahana) => ({
+//       ...wahana,
+//       wd_harga: wahana.pivot.extra.wd_harga,
+//       we_harga: wahana.pivot.extra.we_harga,
+//       catatan: wahana.pivot.extra.catatan,
+//     }))
+//   }
+// )
+
+const { data, error } = await useAsyncData("wahana", async () => {
+  const apiRes = await useApi<{ result: { data: Wahana[] } }>("wahana")
+  return apiRes.result.data
+})
 
 watchEffect(() => {
-  console.log("paketWahana:", paketWahana.value)
+  console.log("paketWahana:", data.value)
   console.log("error:", error.value)
 })
 </script>
