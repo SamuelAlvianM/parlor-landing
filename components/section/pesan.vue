@@ -56,6 +56,6 @@
 <script setup lang="ts">
 
 const daftarMember =  () => {
-  window.location.href = 'https://fe.hompimplay.id/login-kiosk'
+  window.location.href = 'https://fe.hompimplay.id/daftar-kiosk'
 }
 </script>
