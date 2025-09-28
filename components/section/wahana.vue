@@ -1,11 +1,11 @@
 <template>
   <section id="wahana" class="w-full h-[100vh] bg-ungu-terang flex flex-col scroll-mt-24">
-    <div class="py-8 text-center">
+    <div class="py-12 text-center">
       <!-- Judul section -->
-      <div class="text-4xl font-extrabold text-utama">
+      <div class="text-5xl font-extrabold text-utama">
         Wahana Permainan
       </div>
-      <div class="text-xl font-bold text-violet-500">
+      <div class="text-4xl font-bold text-violet-500">
         Berbagai Wahana Seru Untuk Kamu dan Keluarga
       </div>
     </div>
@@ -50,11 +50,11 @@
     </div>
 
     <!-- Judul & Deskripsi wahana aktif -->
-    <div class="text-center text-utama px-4 mt-8">
-      <h3 class="text-4xl font-bold">
+    <div class="text-center text-utama px-4 mt-8 space-y-8">
+      <h3 class="text-6xl font-bold">
         {{ currentTitle }}
       </h3>
-      <p class="text-xl mt-2 max-w-2xl mx-auto text-center">
+      <p class="text-3xl mt-2 max-w-4xl mx-auto text-center">
         {{ currentDesc }}
       </p>
     </div>

@@ -1,5 +1,10 @@
 <template>
-  <footer class="bg-utama-light border-t border-utama text-utama px-4">
+  <footer class="relative overflow-visible bg-utama-light border-t border-utama text-utama px-4">
+
+
+    <div
+      class="absolute bottom-full right-0 translate-y-1/2 w-10 h-10 border-l-[280px] border-t-[190px] border-b-[190px] border-l-utama border-t-transparent border-b-transparent pointer-events-none rotate-125"
+    ></div>
     <div class="w-full px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
       
     <div class="space-y-6 px-4">
