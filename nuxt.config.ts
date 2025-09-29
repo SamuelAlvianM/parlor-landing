@@ -28,7 +28,13 @@ export default defineNuxtConfig({
     ],
   },
   image: {
-    domains: ['parlor.dev','localhost','hompimplay.id','backend.hompimplay.id']
+    provider: 'none',
+    domains: [
+      'parlor.dev',
+      'localhost',
+      'hompimplay.id',
+      'backend.hompimplay.id'
+    ]
   },
 
   runtimeConfig: {
