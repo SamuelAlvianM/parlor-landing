@@ -1,102 +1,106 @@
 <template>
-  <section id="tiket" class="relative w-full h-[90vh] bg-utama scroll-mt-24">
-      <div class="py-8 text-center">
-      <!-- Judul section -->
-      <div class="text-6xl font-extrabold text-utama-teks">
+  <section id="tiket" class="relative w-full bg-utama scroll-mt-24 py-12">
+    <div class="text-center mb-10">
+      <h2 class="text-4xl md:text-6xl font-extrabold text-utama-teks">
         Tiket
-      </div>
-      <div class="text-4xl font-bold text-utama-teks">
+      </h2>
+      <p class="text-lg md:text-2xl font-bold text-utama-teks mt-2">
         Beli tiketnya sekarang dan mainkan Wahananya
-      </div>
+      </p>
     </div>
-    <Swiper
-      :modules="[Navigation]"
-      :loop="true"
-      :slides-per-view="3"
-      :navigation="{
-        prevEl: '#tiket-prev',
-        nextEl: '#tiket-next'
-      }"
-      class="w-full h-[40vh]"
-    >
-      <SwiperSlide
-        v-for="paket in data  || []"
-        :key="paket.id"
-      >
-        <div class="bg-white shadow-lg overflow-hidden w-[36em] h-[20em] mx-auto p-4 rounded-md flex flex-col justify-between">
-          <!-- Nama Wahana -->
-          <div class="font-bold text-2xl text-gray-800 text-center">
-            {{ paket.nama }}
-          </div>
 
-          <!-- Harga -->
-          <div class="mt-4 w-full flex justify-evenly gap-4">
-            <div class="bg-green-500 text-white text-base font-semibold px-4 py-2 rounded-lg text-center w-60">
-              Weekday: Rp {{ paket.nama?.toLocaleString() }}
-            </div>
-            <div class="bg-green-500 text-white text-base font-semibold px-4 py-2 rounded-lg text-center w-60">
-              Weekend: Rp {{ paket.nama?.toLocaleString() }}
-            </div>
-          </div>
-        </div>
-      </SwiperSlide>
-
-      <!-- tombol navigasi -->
+    <div class="relative max-w-6xl mx-auto">
       <div
         id="tiket-prev"
-        class="swiper-button-prev-custom absolute left-4 top-1/2 -translate-y-1/2 z-10 
-              w-12 h-12 bg-utama-teks rounded-full flex items-center justify-center cursor-pointer shadow-lg"
+        class="swiper-button-prev-custom absolute -left-6 md:-left-10 top-1/2 -translate-y-1/2 z-10 
+               w-8 h-8 md:w-12 md:h-12 bg-utama-teks rounded-full flex items-center justify-center cursor-pointer shadow-lg"
       >
-        <Icon name="heroicons:chevron-left" class="w-6 h-6 text-utama" />
+        <Icon name="heroicons:chevron-left" class="w-5 h-5 md:w-6 md:h-6 text-utama" />
       </div>
 
       <div
         id="tiket-next"
-        class="swiper-button-next-custom absolute right-4 top-1/2 -translate-y-1/2 z-10 
-              w-12 h-12 bg-utama-teks rounded-full flex items-center justify-center cursor-pointer shadow-lg"
+        class="swiper-button-next-custom absolute -right-6 md:-right-10 top-1/2 -translate-y-1/2 z-10 
+               w-8 h-8 md:w-12 md:h-12 bg-utama-teks rounded-full flex items-center justify-center cursor-pointer shadow-lg"
       >
-        <Icon name="heroicons:chevron-right" class="w-6 h-6 text-utama" />
+        <Icon name="heroicons:chevron-right" class="w-5 h-5 md:w-6 md:h-6 text-utama" />
       </div>
-    </Swiper>
 
+      <Swiper
+        :modules="[Navigation]"
+        :loop="true"
+        :breakpoints="{
+          320: { slidesPerView: 1, spaceBetween: 16 },
+          640: { slidesPerView: 2, spaceBetween: 20 },
+          1024: { slidesPerView: 3, spaceBetween: 24 }
+        }"
+        :navigation="{
+          prevEl: '#tiket-prev',
+          nextEl: '#tiket-next'
+        }"
+        class="w-full px-4 md:px-8"
+      >
+        <SwiperSlide
+          v-for="paket in paketWahana || []"
+          :key="paket.id"
+          class="flex justify-center items-center"
+        >
+          <div
+            class="bg-white shadow-lg overflow-hidden max-w-sm w-full h-auto p-6 rounded-2xl flex flex-col justify-between mx-auto"
+          >
+            <h3 class="font-bold text-xl md:text-2xl text-gray-800 text-center">
+              {{ paket.nama }}
+            </h3>
 
+            <div class="mt-6 w-full flex flex-col sm:flex-row justify-center gap-4">
+              <div
+                class="bg-green-500 text-white text-sm md:text-base font-semibold px-4 py-2 rounded-lg text-center w-full sm:w-40"
+              >
+                Weekday: Rp {{ paket.wd_harga_dasar?.toLocaleString() }}
+              </div>
+              <div
+                class="bg-green-500 text-white text-sm md:text-base font-semibold px-4 py-2 rounded-lg text-center w-full sm:w-40"
+              >
+                Weekend: Rp {{ paket.we_harga_dasar?.toLocaleString() }}
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+      </Swiper>
+    </div>
 
-    <!-- <pre class="text-white">
-      INI PAKET WAHAANA
-
-  {{ JSON.stringify(paketWahana, null, 2) }}
-</pre> -->
+    <div class="w-full flex justify-center p-4 mt-4">
+      <button
+        type="button"
+        @click="lihatTiket"
+        class="px-6 py-3 bg-utama border-2 shadow-sm shadow-ungu-terang border-ungu-terang text-ungu-terang font-bold rounded-lg shadow hover:bg-utama-teks hover:text-utama transition"
+      >
+        Lihat tiket lainnya
+      </button>
+    </div>
   </section>
 </template>
 
+
+
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+import { Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
-
-// const { data: paketWahana, error } = await useAsyncData(
-//   "paketwahana",
-//   async () => {
-//     const res = await $fetch<ApiResponse>("wahana")
-
-//     return res.result.data.map((wahana) => ({
-//       ...wahana,
-//       wd_harga: wahana.pivot.extra.wd_harga,
-//       we_harga: wahana.pivot.extra.we_harga,
-//       catatan: wahana.pivot.extra.catatan,
-//     }))
-//   }
-// )
-
-const { data, error } = await useAsyncData("wahana", async () => {
-  const apiRes = await useApi<{ result: { data: Wahana[] } }>("wahana")
-  return apiRes.result.data
+const { data: paketWahana, error } = await useAsyncData("paketwahana", async () => {
+  const res = await useApi<{ result: { data: any[] } }>("paketwahana")
+  return res.result.data.map((wahana) => ({
+    ...wahana,
+    wd_harga: wahana.pivot?.extra?.wd_harga,
+    we_harga: wahana.pivot?.extra?.we_harga,
+    catatan: wahana.pivot?.extra?.catatan,
+  }))
 })
 
-watchEffect(() => {
-  console.log("paketWahana:", data.value)
-  console.log("error:", error.value)
-})
+const lihatTiket = () => {
+  window.location.href = 'https://fe.hompimplay.id/login-kiosk'
+}
+
 </script>

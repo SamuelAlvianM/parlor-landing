@@ -1,5 +1,8 @@
 <template>
-  <section id="aktivitas" class="w-full h-[94vh] bg-utama flex flex-col scroll-mt-24">
+  <section
+    id="aktivitas"
+    class="w-full min-h-screen bg-utama flex flex-col scroll-mt-24"
+  >
     <Swiper
       :modules="[Navigation, Pagination, Autoplay]"
       :loop="true"
@@ -14,7 +17,10 @@
       <SwiperSlide v-for="(img, index) in images" :key="index">
         <NuxtImg
           :src="img"
-          class="w-full h-[700px] rounded-b-[10%] object-cover object-center"
+          class="w-full 
+                 h-[200px] sm:h-[200px] md:h-[300px] lg:h-[400px] xl:h-[500px] 
+                 rounded-b-[8%] md:rounded-b-[10%] 
+                 object-cover object-center"
           alt="Slide HOMPIMPLAY"
           width="1200"
           height="600"
@@ -23,20 +29,52 @@
         />
       </SwiperSlide>
 
-      <!-- Custom arrows (ID unik per section) -->
-      <div id="aktivitas-prev" class="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-utama rounded-full flex items-center justify-center cursor-pointer shadow-lg">
-        <Icon name="heroicons:chevron-left" class="w-6 h-6 text-white" />
+      <!-- Custom arrows -->
+      <div
+        id="aktivitas-prev"
+        class="absolute 
+               left-2 sm:left-4 lg:left-8 
+               top-1/2 -translate-y-1/2 z-10 
+               w-8 h-8 sm:w-10 sm:h-10 lg:w-14 lg:h-14 
+               bg-utama rounded-full flex items-center justify-center 
+               cursor-pointer shadow-lg"
+      >
+        <Icon
+          name="heroicons:chevron-left"
+          class="w-4 h-4 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white"
+        />
       </div>
-      <div id="aktivitas-next" class="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-utama rounded-full flex items-center justify-center cursor-pointer shadow-lg">
-        <Icon name="heroicons:chevron-right" class="w-6 h-6 text-white" />
+      <div
+        id="aktivitas-next"
+        class="absolute 
+               right-2 sm:right-4 lg:right-8 
+               top-1/2 -translate-y-1/2 z-10 
+               w-8 h-8 sm:w-10 sm:h-10 lg:w-14 lg:h-14 
+               bg-utama rounded-full flex items-center justify-center 
+               cursor-pointer shadow-lg"
+      >
+        <Icon
+          name="heroicons:chevron-right"
+          class="w-4 h-4 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white"
+        />
       </div>
     </Swiper>
 
-    <div class="flex flex-col justify-center mb-20 space-y-4 text-center text-white">
-      <div class="text-xl md:text-lg font-bold"> Parlor Hills </div>
-      <div>
-        <h2 class="text-2xl md:text-4xl font-bold">Nikmati Wahana Seru di</h2>
-        <h1 class="text-4xl md:text-6xl font-extrabold text-utama-text drop-shadow-lg">
+    <div
+      class="flex flex-col justify-center py-6 md:py-10 lg:py-14 
+             space-y-4 md:space-y-8 text-center text-white"
+    >
+      <div class="text-base sm:text-3xl md:text-4xl font-bold">
+        Parlor Hills
+      </div>
+      <div class="space-y-2">
+        <h2 class="text-lg sm:text-4xl md:text-5xl font-bold">
+          Nikmati Wahana Seru di
+        </h2>
+        <h1
+          class="text-2xl sm:text-6xl md:text-7xl lg:text-8xl 
+                 font-extrabold text-utama-text drop-shadow-lg"
+        >
           HOMPIMPLAY
         </h1>
       </div>
@@ -48,7 +86,6 @@
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
-
 const images = [
   'https://i.pinimg.com/1200x/8c/8d/b6/8c8db63310d693035b595bc0c60a0dbd.jpg',
   'https://i.pinimg.com/736x/74/20/95/742095aa447be2db79786faef2a5562a.jpg',
@@ -58,31 +95,47 @@ const images = [
 ]
 </script>
 
-
-
 <style scoped>
 :deep(.swiper) {
   position: relative;
 }
 :deep(.swiper-pagination-bullet) {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border: 2px solid var(--ui-primary);
-  border-color: var(--ui-primary);
   background: var(--color-utama);
   opacity: 0.6;
   border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+:deep(.swiper-pagination) {
+  position: absolute !important;
+  bottom: 1.5rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 20; 
+}
+
+:deep(.swiper-pagination-bullet) {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--ui-primary);
+  background: var(--color-utama);
+  border-radius: 9999px; 
+  transition: all 0.3s ease;
 }
 
 :deep(.swiper-pagination-bullet-active) {
   background: var(--color-ungu-terang);
   opacity: 1;
-  transform: scale(1.2);
+  transform: scale(1.3);
 }
 
-:deep(.swiper-pagination) {
-  bottom: 60px !important;
-}
 
 :deep(.swiper-button-next),
 :deep(.swiper-button-prev) {
