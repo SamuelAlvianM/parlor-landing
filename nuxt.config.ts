@@ -13,7 +13,6 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxt/image',
     '@nuxt/ui',
-    '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxt/scripts',
   ],
@@ -28,15 +27,11 @@ export default defineNuxtConfig({
     ],
   },
   image: {
-    provider: 'none',
-    domains: [
-      'parlor.dev',
-      'localhost',
-      'hompimplay.id',
-      'backend.hompimplay.id'
-    ]
+    provider: 'ipx',
+    domains: ['backend.hompimplay.id'],
+    ipx: {
+    }
   },
-
   runtimeConfig: {
     apiEndPoint: process.env.NUXT_API_BASE,
 
@@ -47,6 +42,12 @@ export default defineNuxtConfig({
       apiUrl: process.env.NUXT_API_BASE,
       rootUrl: process.env.NUXT_API_BASE_PROD || 'http://localhost:3000',
     }
+  },
+
+  fonts: {
+    families: [
+      { name: 'Inter', provider: 'google' }
+    ],
   },
 
   compatibilityDate: '2025-09-26',
