@@ -86,7 +86,7 @@
 
     <!-- Copyright -->
     <div class="border-t border-utama mt-6 py-4 px-12 text-left text-sm sm:text-md text-utama font-bold">
-      © {{ new Date().getFullYear() }} CV 3 Detik. All Rights Reserved.
+      © 2025 CV. 3 DETIK. All Rights Reserved.
     </div>
   </footer>
 </template>

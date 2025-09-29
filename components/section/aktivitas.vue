@@ -61,8 +61,8 @@
     </Swiper>
 
     <div
-      class="flex flex-col justify-center py-6 md:py-10 lg:py-14 
-             space-y-4 md:space-y-8 text-center text-white"
+      class="flex flex-col justify-center ppy-2 md:py-4 lg:py-4 
+             space-y-4 md:space-y-4 text-center text-white"
     >
       <div class="text-base sm:text-3xl md:text-4xl font-bold">
         Parlor Hills
@@ -72,7 +72,7 @@
           Nikmati Wahana Seru di
         </h2>
         <h1
-          class="text-2xl sm:text-6xl md:text-7xl lg:text-8xl 
+          class="text-2xl sm:text-5xl md:text-6xl lg:text-7xl 
                  font-extrabold text-utama-text drop-shadow-lg"
         >
           HOMPIMPLAY
