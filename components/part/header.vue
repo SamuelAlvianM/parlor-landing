@@ -2,7 +2,7 @@
   <header class="sticky top-0 z-50 bg-utama-light font-bold shadow-md py-4">
     <div class="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between relative">
 
-      <NuxtImg src="/favicon.ico" alt="Logo" class="h-18 w-20" />
+      <NuxtImg src="/favicon.ico" alt="Logo" class="h-20 w-24 object-contain" />
 
       <!-- Kanan: Desktop Nav + Language + Kids, Mobile Hamburger + Language + Kids -->
       <div class="flex items-center gap-4">
@@ -24,7 +24,7 @@
         </nav>
 
         <!-- Language Switch -->
-        <div class="flex items-center text-lg font-medium space-x-2">
+        <!-- <div class="flex items-center text-lg font-medium space-x-2">
           <template v-for="(loc, index) in locales" :key="loc">
             <button
               @click="setLocale(loc)"
@@ -38,10 +38,10 @@
             </button>
             <span v-if="index < locales.length - 1" class="text-utama">|</span>
           </template>
-        </div>
+        </div> -->
 
         <!-- Kids Mode -->
-        <div class="flex flex-col items-center w-[100px]">
+        <!-- <div class="flex flex-col items-center w-[100px]">
           <label class="flex items-center cursor-pointer">
             <input type="checkbox" v-model="kidsMode" class="sr-only" />
             <div
@@ -57,7 +57,7 @@
           <span class="mt-1 text-sm text-utama">
             {{ $t(kidsMode ? 'mode.kids' : 'mode.normal') }}
           </span>
-        </div>
+        </div> -->
 
         <!-- Hamburger-->
         <button

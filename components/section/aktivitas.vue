@@ -1,7 +1,7 @@
 <template>
   <section
     id="aktivitas"
-    class="w-full min-h-screen bg-utama flex flex-col scroll-mt-24"
+    class="w-full min-h-screen bg-utama flex flex-col scroll-mt-30"
   >
     <Swiper
       :modules="[Navigation, Pagination, Autoplay]"
@@ -18,7 +18,7 @@
         <NuxtImg
           :src="img"
           class="w-full 
-                 h-[500px] sm:h-[500px] md:h-[300px] lg:h-[400px] xl:h-[500px] 
+                 h-[500px] sm:h-[500px] md:h-[300px] lg:h-[400px] xl:h-[550px] 
                  rounded-b-[8%] md:rounded-b-[10%] 
                  object-cover object-center"
           alt="Slide HOMPIMPLAY"
