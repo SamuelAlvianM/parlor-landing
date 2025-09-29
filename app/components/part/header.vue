@@ -19,7 +19,7 @@
               'text-utama hover:text-utama-dark': activeSection !== tab.id
             }"
           >
-            {{ $t(`tabs.${tab.i18n}.label`) }}
+            {{ tab.label }}
           </a>
         </nav>
 
@@ -88,7 +88,7 @@
               'text-utama hover:text-utama-dark': activeSection !== tab.id
             }"
           >
-            {{ $t(`tabs.${tab.i18n}.label`) }}
+            {{ tab.label }}
           </a>
         </nav>
       </div>
@@ -102,10 +102,10 @@ import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
 
 const tabKeys = [
-  { id: 'aktivitas', i18n: 'aktivitas_val' },
-  { id: 'wahana', i18n: 'wahana_val' },
-  { id: 'tiket', i18n: 'tiket_val' },
-  { id: 'pesan', i18n: 'pesan_val' },
+  { id: 'aktivitas', label: 'Aktivitas', to: '/aktivitas' },
+  { id: 'wahana', label: 'Wahana', to: '/wahana' },
+  { id: 'tiket', label: 'Tiket & Paket', to: '/tiket' },
+  { id: 'pesan', label: 'Pesan Tiket', to: '/pesan' },
 ]
 
 const activeSection = ref('aktivitas')
