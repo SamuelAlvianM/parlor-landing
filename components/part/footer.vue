@@ -4,7 +4,7 @@
     <!-- Segitiga -->
     <div
       class="absolute top-[-5em] right-0 w-0 h-0 
-      border-l-[45vw] border-t-[30vw] rotate-60
+      border-l-[15vw] border-t-[18vw] rotate-60
       border-l-utama border-t-transparent
       pointer-events-none z-10
       sm:border-l-[4vw] sm:border-t-[6vw] sm:top-[-1em]

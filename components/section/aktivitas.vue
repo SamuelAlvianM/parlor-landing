@@ -18,7 +18,7 @@
         <NuxtImg
           :src="img"
           class="w-full 
-                 h-[200px] sm:h-[200px] md:h-[300px] lg:h-[400px] xl:h-[500px] 
+                 h-[500px] sm:h-[500px] md:h-[300px] lg:h-[400px] xl:h-[500px] 
                  rounded-b-[8%] md:rounded-b-[10%] 
                  object-cover object-center"
           alt="Slide HOMPIMPLAY"
