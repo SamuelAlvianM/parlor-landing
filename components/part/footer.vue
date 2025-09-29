@@ -76,10 +76,10 @@
       <div>
         <h3 class="text-lg lg:text-xl text-utama font-bold mb-2">Cashless Payment</h3>
         <div class="flex flex-wrap items-center gap-3">
-          <img src="/images/pg/qris.png" alt="QRIS" class="h-6 sm:h-7 lg:h-8" />
-          <img src="/images/pg/gopay.png" alt="GoPay" class="h-6 sm:h-7 lg:h-8" />
-          <img src="/images/pg/mastercard.png" alt="Mastercard" class="h-6 sm:h-7 lg:h-8" />
-          <img src="/images/pg/visa.png" alt="Visa" class="h-6 sm:h-7 lg:h-8" />
+          <NuxtImg src="/images/pg/qris.png" alt="QRIS" class="h-6 sm:h-7 lg:h-8" />
+          <NuxtImg src="/images/pg/gopay.png" alt="GoPay" class="h-6 sm:h-7 lg:h-8" />
+          <NuxtImg src="/images/pg/mastercard.png" alt="Mastercard" class="h-6 sm:h-7 lg:h-8" />
+          <NuxtImg src="/images/pg/visa.png" alt="Visa" class="h-6 sm:h-7 lg:h-8" />
         </div>
       </div>
     </div>
