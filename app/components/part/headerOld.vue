@@ -2,28 +2,26 @@
   <header class="sticky top-0 z-50 bg-utama-light font-bold shadow-md py-4">
     <div class="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between relative">
 
-      <NuxtLink to="/">
-        <NuxtImg src="/favicon.ico" alt="Logo" class="h-20 w-24 object-contain" />
-      </NuxtLink>
+      <NuxtImg src="/favicon.ico" alt="Logo" class="h-20 w-24 object-contain" />
 
       <!-- Kanan: Desktop Nav + Language + Kids, Mobile Hamburger + Language + Kids -->
       <div class="flex items-center gap-4">
 
-        <nav class="hidden md:flex space-x-8">
-          <NuxtLink
-            v-for="tab in tabKeys"
-            :key="tab.id"
-            :to="tab.to"
-            @click.prevent="handleNavClick(tab)"
-            class="text-lg font-bold transition-default cursor-pointer"
-            :class="{
-              'text-utama border-b-2 border-utama pb-1': activeSection === tab.id && isHomePage,
-              'text-utama hover:text-utama-dark': activeSection !== tab.id || !isHomePage
-            }"
-          >
-            {{ tab.label }}
-          </NuxtLink>
-        </nav>
+      <nav class="hidden md:flex space-x-8">
+        <NuxtLink
+          v-for="tab in tabKeys"
+          :key="tab.id"
+          :to="tab.to"
+          class="text-lg font-bold transition-default"
+          :class="{
+            'text-utama border-b-2 border-utama pb-1': activeSection === tab.id,
+            'text-utama hover:text-utama-dark': activeSection !== tab.id
+          }"
+        >
+          {{ tab.label }}
+        </NuxtLink>
+      </nav>
+
 
         <!-- Language Switch -->
         <!-- <div class="flex items-center text-lg font-medium space-x-2">
@@ -82,12 +80,12 @@
           <a
             v-for="tab in tabKeys"
             :key="tab.id"
-            href="#"
-            @click.prevent="handleNavClick(tab)"
+            :href="'#' + tab.id"
             class="text-lg font-bold transition-default"
+            @click="isOpen = false"
             :class="{
-              'text-utama border-b-2 border-utama pb-1': activeSection === tab.id && isHomePage,
-              'text-utama hover:text-utama-dark': activeSection !== tab.id || !isHomePage
+              'text-utama border-b-2 border-utama pb-1': activeSection === tab.id,
+              'text-utama hover:text-utama-dark': activeSection !== tab.id
             }"
           >
             {{ tab.label }}
@@ -102,8 +100,6 @@
 import { useI18n } from 'vue-i18n'
 
 const { locale } = useI18n()
-const route = useRoute()
-const router = useRouter()
 
 const tabKeys = [
   { id: 'aktivitas', label: 'Aktivitas', to: '/#aktivitas' },
@@ -113,7 +109,6 @@ const tabKeys = [
 ]
 
 const activeSection = ref('aktivitas')
-const isOpen = ref(false)
 
 const locales = ['id', 'en'] as const
 type Locale = typeof locales[number]
@@ -121,98 +116,19 @@ const currentLocale = computed(() => locale.value)
 const setLocale = (loc: Locale) => { locale.value = loc }
 
 const kidsMode = ref(false)
+const isOpen = ref(false)
 
-// Cek apakah di homepage
-const isHomePage = computed(() => route.path === '/')
-
-// Handle navigation click
-const handleNavClick = async (tab: any) => {
-  isOpen.value = false
-  
-  // Jika bukan di homepage, navigate dulu ke home
-  if (!isHomePage.value) {
-    await router.push('/')
-    // Tunggu sebentar untuk memastikan DOM sudah render
-    await nextTick()
-  }
-  
-  // Set active section
-  activeSection.value = tab.id
-  
-  // Scroll ke section
-  const element = document.getElementById(tab.id)
-  if (element) {
-    const headerOffset = 100 // tinggi header + margin
-    const elementPosition = element.getBoundingClientRect().top
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-    
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    })
-  }
-}
-
-// Setup intersection observer
-const setupObserver = () => {
-  // Hanya jalankan di client-side dan homepage
-  if (process.server || !isHomePage.value) {
-    activeSection.value = ''
-    return
-  }
-
-  const sections = tabKeys
-    .map(tab => document.getElementById(tab.id))
-    .filter((el): el is HTMLElement => el !== null)
-  
-  if (sections.length === 0) return
-
+onMounted(() => {
+  const sections = tabKeys.map(tab => document.getElementById(tab.id))
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-          activeSection.value = entry.target.id
-        }
+        if (entry.isIntersecting) activeSection.value = entry.target.id
       })
     },
-    { 
-      threshold: 0.5,
-      rootMargin: '-100px 0px -50% 0px'
-    }
+    { threshold: 0.5 }
   )
-  
-  sections.forEach(sec => observer.observe(sec))
-  
-  // Return cleanup function
-  return () => {
-    sections.forEach(sec => observer.unobserve(sec))
-  }
-}
-
-// Watch route changes
-watch(() => route.path, () => {
-  if (!isHomePage.value) {
-    activeSection.value = ''
-  }
-  
-  nextTick(() => {
-    setupObserver()
-  })
-}, { immediate: true })
-
-onMounted(() => {
-  setupObserver()
-  
-  // Handle hash in URL on mount
-  if (route.hash) {
-    const sectionId = route.hash.replace('#', '')
-    const tab = tabKeys.find(t => t.id === sectionId)
-    if (tab) {
-      setTimeout(() => {
-        handleNavClick(tab)
-      }, 500)
-    }
-  }
+  sections.forEach(sec => sec && observer.observe(sec))
 })
 </script>
 

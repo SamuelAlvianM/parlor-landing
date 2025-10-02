@@ -7,6 +7,9 @@ export default defineNuxtConfig({
   ssr: true,
   nitro: { preset: 'static' },
 
+  srcDir: 'app/',
+  pages: true,
+
   css: ['@/assets/css/tailwind.css'],
 
   modules: [

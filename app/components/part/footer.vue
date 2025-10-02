@@ -67,7 +67,11 @@
           <li>Reservasi Grup</li>
           <li>Pemesanan Online</li>
           <li>Penawaran Khusus</li>
-          <li>Aturan & Regulasi</li>
+          <li>
+            <NuxtLink to="/terms-condition" class="hover:underline hover:text-utama">
+              Aturan & Regulasi
+            </NuxtLink>
+          </li>
           <li>Hubungi Kami</li>
         </ul>
       </div>
