@@ -125,24 +125,19 @@ const kidsMode = ref(false)
 // Cek apakah di homepage
 const isHomePage = computed(() => route.path === '/')
 
-// Handle navigation click
 const handleNavClick = async (tab: any) => {
   isOpen.value = false
   
-  // Jika bukan di homepage, navigate dulu ke home
   if (!isHomePage.value) {
     await router.push('/')
-    // Tunggu sebentar untuk memastikan DOM sudah render
     await nextTick()
   }
   
-  // Set active section
   activeSection.value = tab.id
   
-  // Scroll ke section
   const element = document.getElementById(tab.id)
   if (element) {
-    const headerOffset = 100 // tinggi header + margin
+    const headerOffset = 100 
     const elementPosition = element.getBoundingClientRect().top
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset
     

@@ -1,7 +1,7 @@
 <template>
   <section
     id="wahana"
-    class="w-full min-h-[100vh] bg-ungu-terang flex flex-col scroll-mt-24"
+    class="w-full min-h-[100vh] bg-ungu-terang flex flex-col scroll-mt-24 space-y-4"
   >
     <div class="py-4 md:py-6 text-center px-4">
       <div class="text-3xl md:text-5xl font-extrabold text-utama">
@@ -28,21 +28,25 @@
           480: { slidesPerView: 2, spaceBetween: 16 },    // HP besar
           768: { slidesPerView: 3, spaceBetween: 20 },    // Tablet
           1024: { slidesPerView: 4, spaceBetween: 20 },   // Laptop
-          1280: { slidesPerView: 5, spaceBetween: 24 }    // Desktop lebar
+          1280: { slidesPerView: 5, spaceBetween: 16 }    // Desktop lebar
         }"
-        class="w-full"
+        class="w-full h-[44vh] py-8 overflow-visible"
         @slideChange="onSlideChange"
       >
         <SwiperSlide v-for="(wahana, index) in data" :key="index">
           <div
-            class="bg-white rounded-[10%] shadow-lg overflow-hidden max-w-xs mx-auto transition-all duration-300"
+            class="rounded-2xl transition-all duration-300 p-4 max-w-xs mx-auto"
+            :class="index === activeIndex 
+              ? 'border-10 border-utama/80 shadow-xl scale-100 bg-ungu-terang' 
+              : 'border border-transparent'"
           >
-            <NuxtImg
-              :src="wahana.imagePath"
-              :alt="wahana.nama"
-              class="w-full h-54 md:h-[24em] object-cover transition duration-300"
-              :class="index === activeIndex ? 'grayscale-0' : 'grayscale'"
-            />
+            <div class="overflow-hidden rounded-xl">
+              <NuxtImg
+                :src="wahana.imagePath"
+                :alt="wahana.nama"
+                class="w-full h-36 md:h-[24em] object-cover"
+              />
+            </div>
           </div>
         </SwiperSlide>
       </Swiper>
@@ -63,11 +67,11 @@
     </div>
 
     <!-- Judul & Deskripsi wahana aktif -->
-    <div class="text-center text-utama px-4 mt-6 md:mt-8 space-y-4 md:space-y-8">
-      <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold">
+    <div class="text-center text-utama px-4 md:mt-8 space-y-2 md:space-y-8">
+      <h3 class="text-4xl md:text-3xl lg:text-4xl font-bold">
         {{ currentTitle }}
       </h3>
-      <p class="text-base md:text-lg lg:text-2xl max-w-3xl mx-auto text-center mb-4">
+      <p class="text-xl md:text-lg lg:text-2xl max-w-4xl mx-auto text-center mb-4">
         {{ currentDesc }}
       </p>
     </div>
@@ -102,6 +106,7 @@ const onSlideChange = (swiper: any) => {
   currentDesc.value = item?.deskripsi ?? ""
 }
 
+
 // set default judul & deskripsi awal
 watchEffect(() => {
   if (data.value && data.value.length > 0 && data.value[0]) {
@@ -115,5 +120,22 @@ watchEffect(() => {
 <style scoped>
 :deep(.swiper-pagination) {
   display: none !important;
+}
+:deep(.swiper) {
+  overflow: visible !important;
+}
+:deep(.swiper-wrapper) {
+  overflow: visible !important;
+  align-items: flex-start;
+}
+
+:deep(.swiper-slide) {
+  overflow: visible !important;
+  padding-bottom: 2rem; 
+}
+
+:deep(.swiper-slide) .rounded-2xl {
+  backface-visibility: hidden;
+  will-change: transform;
 }
 </style>
