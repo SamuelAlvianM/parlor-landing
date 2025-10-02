@@ -22,7 +22,7 @@
         <div
           id="tiket-prev"
           class="swiper-button-prev-custom pointer-events-auto
-                 w-8 h-8 md:w-12 md:h-12 bg-utama-teks rounded-full flex items-center justify-center cursor-pointer shadow-lg z-10"
+                 w-8 h-8 md:w-12 md:h-12 bg-utama-teks rounded-full flex items-center justify-center cursor-pointer shadow-lg z-10 -translate-x-6"
         >
           <Icon
             name="heroicons:chevron-left"
@@ -34,7 +34,7 @@
         <div
           id="tiket-next"
           class="swiper-button-next-custom pointer-events-auto
-                 w-8 h-8 md:w-12 md:h-12 bg-utama-teks rounded-full flex items-center justify-center cursor-pointer shadow-lg z-10"
+                 w-8 h-8 md:w-12 md:h-12 bg-utama-teks rounded-full flex items-center justify-center cursor-pointer shadow-lg z-10 translate-x-6"
         >
           <Icon
             name="heroicons:chevron-right"
@@ -56,7 +56,7 @@
           prevEl: '#tiket-prev',
           nextEl: '#tiket-next'
         }"
-        class="w-full"
+        class="w-full gap-4"
       >
         <SwiperSlide
           v-for="paket in paketWahana || []"

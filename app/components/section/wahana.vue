@@ -34,14 +34,14 @@
         @slideChange="onSlideChange"
       >
         <SwiperSlide v-for="(wahana, index) in data" :key="index">
-          <!-- Card -->
           <div
-            class="bg-white rounded-[10%] shadow-lg overflow-hidden max-w-xs mx-auto"
+            class="bg-white rounded-[10%] shadow-lg overflow-hidden max-w-xs mx-auto transition-all duration-300"
           >
             <NuxtImg
               :src="wahana.imagePath"
               :alt="wahana.nama"
-              class="w-full h-54 md:h-[24em] object-cover"
+              class="w-full h-54 md:h-[24em] object-cover transition duration-300"
+              :class="index === activeIndex ? 'grayscale-0' : 'grayscale'"
             />
           </div>
         </SwiperSlide>
@@ -92,8 +92,11 @@ const currentTitle = ref("")
 const currentDesc = ref("")
 
 // Update judul sesuai slide aktif
+const activeIndex = ref(0)
+
 const onSlideChange = (swiper: any) => {
   const index = swiper.realIndex
+  activeIndex.value = index
   const item = data.value?.[index]
   currentTitle.value = item?.nama ?? ""
   currentDesc.value = item?.deskripsi ?? ""

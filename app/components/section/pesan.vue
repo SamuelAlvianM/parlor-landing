@@ -44,8 +44,7 @@
     <NuxtImg
       src="/images/parlor-image/wahana/p-flyingfox.webp"
       alt="Lingkaran"
-      class="absolute bottom-[-100px] sm:bottom-[-160px] left-[-30px] sm:left-[-50px] 
-            w-80 sm:w-80 aspect-square rounded-full object-cover opacity-80 z-[-1] pointer-events-none"
+      class="absolute bottom-[-50px] left-0 w-88 aspect-square rounded-full object-cover opacity-80 z-0 pointer-events-none"
     />
   </section>
 </template>
